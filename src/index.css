@@ -1,24 +1,45 @@
-.headerDiv {
-  border: 10px solid blue;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+body {
+  font-family: 'Comfortaa';
 }
 
-.buttonDiv {
-  border: 10px solid magenta;
+.container {
+  display: flex;
+  flex-flow: column;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
-.infoDiv {
-  border: 10px solid cyan;
-
+.header-div {
+  /* border: 5px solid blue; */
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.boardDiv {
-  border: 10px solid orange;
-
+.site-title-div {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  /* border: 5px solid green; */
 }
 
-.messageDiv {
-  border: 10px solid limegreen;
+.colorful-queen-span {
+  margin-right: 20px;
+}
 
+.actions-div {
+  display: flex;
+  flex-flow: column wrap;
+  /* border: 5px solid magenta; */
+}
+
+nav {
+  /* border: 5px solid black; */
+  padding: 10px;
 }
 
 .chessboard-small {
@@ -26,6 +47,99 @@
 }
 
 .historical-game {
-  border: 10px solid limegreen;
+  border: 5px solid black;
+  border-radius: 10%;
+  margin: 10px;
+  padding: 10px;
 }
 
+
+
+
+/* These divs section the 'Play' page */
+
+.play-div {
+  /* border: 5px solid violet; */
+}
+
+.board-div {
+  /* border: 5px solid salmon; */
+}
+
+info-actions-div {}
+
+
+.info-div {
+  /* border: 5px solid cyan; */
+}
+
+.messageDiv {
+  /* border: 2px solid black; */
+  padding: 1rem;
+}
+
+.captured-pieces {
+  /* border: 2px solid black; */
+
+  /* display: flex; */
+  /* flex-flow: row wrap; */
+  /* border: 5px solid lightcoral; */
+
+}
+
+button {
+  font-family: 'Comfortaa';
+}
+
+
+@media (min-width: 35rem) {
+
+  .play-div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .board-div {
+    min-width: 40%;
+    margin: 10px;
+  }
+
+  .info-div {}
+
+  .info-actions-div {
+    min-width: 20%;
+    max-width: 60%;
+    margin: 10px;
+    /* border: 2px solid red; */
+
+  }
+
+  .messageDiv {
+    min-width: 80%
+  }
+}
+
+@media (min-width: 25rem) {
+  .historical-games-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto, 1fr)
+  }
+  @media (min-width: 45rem) {
+    .historical-games-div {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 60rem) {
+      .historical-games-div {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      @media (min-width: 85rem) {
+        .historical-games-div {
+          grid-template-columns: repeat(5, 1fr);
+        }
+      }
+    }
+}
+
+}

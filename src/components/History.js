@@ -7,13 +7,15 @@ export default function History() {
     return (
         <>
             <h1>History</h1>
-            {
-                games.map(game => {
-                    return (
-                        <HistoricalGameCard key={game.id} game={game}/>
-                    )
-                })
-            }
+            <div className="historical-games-div">
+                {
+                    games.map(game => {
+                        return (
+                            <HistoricalGameCard key={game.id} game={game}/>
+                        )
+                    })
+                }
+            </div>
         </>
     )
 }

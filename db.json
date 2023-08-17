@@ -22,13 +22,6 @@
       "id": 8
     },
     {
-      "name": null,
-      "date": "2023-08-16T19:55:29.789Z",
-      "pgn": "1. e4 e5 2. Nf3 d6 3. d4 Bg4 {This is a weak move already.--Fischer} 4. dxe5 Bxf3 5. Qxf3 dxe5 6. Bc4 Nf6 7. Qb3 Qe7 8. Nc3 c6 9. Bg5 {Black is in what's like a zugzwang position here. He can't develop the [Queen's] knight because the pawn is hanging, the bishop is blocked because of the Queen.--Fischer} b5 10. Nxb5 cxb5 11. Bxb5+ Nbd7 12. O-O-O Rd8 13. Rxd7 Rxd7 14. Rd1 Qe6 15. Bxd7+ Nxd7 16. Qb8+ Nxb8 17. Rd8#",
-      "fen": "1n1Rkb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2K5 b k - 1 17",
-      "id": 9
-    },
-    {
       "name": "Demoing app for Caleb!",
       "date": "2023-08-16T20:26:04.138Z",
       "pgn": "1. a3 Na6 2. c4 Nf6 3. g4 Nxg4 4. Nh3 Nb8 5. Qb3 h5 6. Ng1 e6 7. e3 Nxe3 8. Qb6 Rh6 9. Qxe3 Nc6 10. Qb6 Ne5 11. Bh3 g6",
@@ -41,6 +34,41 @@
       "pgn": "1. a3 Na6 2. c4 Nf6 3. g4 Nxg4 4. Nh3 Nb8 5. Qb3 h5 6. Ng1 e6 7. e3 Nxe3 8. Qb6 Rh6 9. Qxe3 Nc6 10. Qb6 Ne5 11. Bh3 g6",
       "fen": "r1bqkb2/pppp1p2/1Q2p1pr/4n2p/2P5/P6B/1P1P1P1P/RNB1K1NR w KQq - 0 12",
       "id": 11
+    },
+    {
+      "name": "Test -- loaded from FEN, no PNG",
+      "date": "2023-08-17T16:18:52.242Z",
+      "pgn": "[SetUp \"1\"]\n[FEN \"7R/r4PKp/8/7p/7k/8/8/8 w - - 0 1\"]\n",
+      "fen": "7R/r4PKp/8/7p/7k/8/8/8 w - - 0 1",
+      "id": 12
+    },
+    {
+      "name": "Anderssen's Mate",
+      "date": "2023-08-17T16:21:31.906Z",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d3 8. Qb3 Qf6 9. e5 Qg6 10. Re1 Nge7 11. Ba3 b5 12. Qxb5 Rb8 13. Qa4 Bb6 14. Nbd2 Bb7 15. Ne4 Qf5 16. Bxd3 Qh5 17. Nf6+ gxf6 18. exf6 Rg8 19. Rad1 Qxf3 20. Rxe7+ Nxe7 21. Qxd7+ Kxd7 22. Bf5+ Ke8 23. Bd7+ Kf8 24. Bxe7#",
+      "fen": "1r3kr1/pbpBBp1p/1b3P2/8/8/2P2q2/P4PPP/3R2K1 b - - 0 24",
+      "id": 13
+    },
+    {
+      "name": "Testing CSS",
+      "date": "2023-08-17T18:58:22.344Z",
+      "pgn": "1. Nf3 g5 2. Nc3 Na6 3. b4 Rb8 4. Nd4 Ra8 5. Ncb5 Nc5 6. f3 Bh6 7. Nb3 Na6 8. h3 g4 9. Na5 c5 10. Nc3 Qb6 11. b5 f6 12. d4 Bf8 13. Bg5 d6 14. Bh6 gxh3 15. Bf4 h6 16. e3 hxg2 17. Be2 gxh1=N 18. Bg5 Qc6 19. Bxh6 f5 20. f4 e6 21. Ne4 e5 22. c4 Bg7 23. Bg4 Qd7 24. Qf3 Rxh6 25. Nf2 Rh7 26. Qc6 exf4 27. Nd1 Ke7 28. Kd2 b6 29. Qxh1 f3 30. Rc1 Rh6 31. Qf1 Kf6 32. Qg2 bxa5 33. Ra1 Rh3 34. Qf2 a4 35. Ke1 Rh8 36. Qg3 cxd4 37. Qf4 Nc5 38. Qe4 f4 39. Qb7 d3 40. Qxc8 Ne6 41. Rc1 f2+ 42. Kxf2 Rh4 43. Bf5 Ng5 44. Bxd3 Rb8 45. Qxg8 Qc7 46. Bc2 Rf8 47. Bb1 Qc6 48. Bg6 Rf7 49. Bxf7 Qd7 50. Rc3 Ke7 51. Kg2 Nh3 52. Bd5 Bxc3 53. Qh8 Rxh8 54. Bc6 Be1 55. Be4 Bb4 56. Nb2 Ba5 57. Nd3 Rd8 58. Nxf4 Nf2 59. Bf3 Qc8 60. Ba8 Nh1 61. e4 a3 62. Ne6 Qc5 63. Bb7 Rf8 64. Nxc5 Nf2 65. Ba8 Bc7",
+      "fen": "B4r2/p1b1k3/3p4/1PN5/2P1P3/p7/P4nK1/8 w - - 3 66",
+      "id": 14
+    },
+    {
+      "name": "Testing grid layout",
+      "date": "2023-08-17T19:06:05.007Z",
+      "pgn": "",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "id": 15
+    },
+    {
+      "name": "Still testing grid layout",
+      "date": "2023-08-17T19:06:11.085Z",
+      "pgn": "",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "id": 16
     }
   ]
 }

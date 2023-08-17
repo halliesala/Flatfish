@@ -1,11 +1,13 @@
 import Piece from "./Piece";
+import CapturedPieces from "./CapturedPieces";
 
 export default function InfoBox({ game }) {
 
     return (
-        <div className="infoDiv">
+        <div className="info-div">
             <h2>Game Info</h2>
-            <button>Test getCapturedPiecesFromFEN</button>
+            <CapturedPieces fen={game.fen()} color='w' text="Black has captured:"/>
+            <CapturedPieces fen={game.fen()} color='b' text="White has captured:" />
             <p>Current Turn: {game.turn() === 'w' ? 'White' : 'Black'}</p>
             <p>Check: {game.inCheck() ? 'Yes' : 'No'}</p>
             <p>Checkmate: {game.isCheckmate() ? 'Yes' : 'No'}</p>
@@ -13,31 +15,6 @@ export default function InfoBox({ game }) {
             <p>
                 Draw: {game.isDraw() ? `Yes -- ${game.isInsufficientMaterial() ? 'Insufficient Material' : '50-Move Rule'}` : 'No'}
             </p>
-            <p>White has captured:</p>
-            <div className="captured-pieces">
-                {
-                    getCapturedPiecesFromPGN('w').map((piece, idx) => {
-                        return (
-                            <span key={idx}>
-                                <Piece piece={`b${piece.toUpperCase()}`} />
-                            </span>
-
-                        )
-                    })
-                }
-            </div>
-            <p className="captured-pieces">Black has captured:</p>
-            <div>
-                {
-                    getCapturedPiecesFromPGN('b').map((piece, idx) => {
-                        return (
-                            <span key={idx}>
-                                <Piece piece={`w${piece.toUpperCase()}`} />
-                            </span>
-                        )
-                    })
-                }
-            </div>
         </div>
     )
 
@@ -52,7 +29,12 @@ export default function InfoBox({ game }) {
         return captures;
     }
 
-    function getCapturedPiecesFromFEN(fen) {
+    function getCapturedPiecesFromFEN() {
+
+        let fen = game.fen();
+        fen = fen.split(" ")[0];
+        console.log(fen);
+
 
         // Example FEN with one black knight captured
         // 
@@ -73,9 +55,14 @@ export default function InfoBox({ game }) {
             k: 1,
         }
 
-        for (let char in fen) {
-            console.log(char);
+
+        for (let char of fen) {
+            if (char in piece_counts) {
+                piece_counts[char]--;
+            }
         }
+
+        console.log(piece_counts);
 
     }
 }

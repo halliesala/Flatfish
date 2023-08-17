@@ -4,15 +4,16 @@ import { useState } from 'react'
 
 export default function Header() {
 
-    const [color, setColor] = useState("blue");
+    const [color, setColor] = useState("black");
 
     return (
-        <div className="headerDiv">
-            <h1 onClick={randomColor} >Chess!</h1>
-            <div className="colorful-queen-div" onClick={randomColor}>
-                <Piece piece="cQ" color={color} />
+        <div className="header-div">
+            <div className="site-title-div">
+                <span className="colorful-queen-span" onClick={randomColor}>
+                    <Piece piece="cQ" color={color} />
+                </span>
+                <h1 onClick={randomColor}>Hallie's React Chess App</h1>
             </div>
-
             <nav>
                 <Link to="/">Home</Link>
                 <span>{`\t|\t`}</span>

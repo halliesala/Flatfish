@@ -15,29 +15,38 @@ export default function Play() {
         initialGame.loadPgn(data.game.pgn);
     }
 
-    const WELCOME_MESSAGE = {text: "Welcome! Messages will appear here."}
+    const WELCOME_MESSAGE = { text: "Welcome! Messages will appear here." }
 
     const [game, setGame] = useState(initialGame);
     const [messages, setMessages] = useState([WELCOME_MESSAGE]);
 
-    
+
     return (
-        <>
-            <div className="buttonDiv">
-                <button onClick={randomMove}>Random Move</button>
-                <button onClick={resetGame}>Reset Board</button>
-                <button onClick={undoLastMove}>Undo Last Move</button>
-                {/* Disabling the Load FEN button until I can handle captured pieces via FEN rather than game.history */}
-                {/* <button onClick={handleLoadFEN}>Load FEN</button> */}
-                <button onClick={copyFEN}>Copy FEN to Clipboard</button>
-                <button onClick={saveGame}>Save Game</button>
-                <button onClick={addHeaders}>Update Headers</button>
-                <button onClick={handleLoadPGN}>Load PGN</button>
+        <div>
+
+            <div className="play-div">
+                <div className="board-div">
+                    <Board fen={game.fen()} handleDrop={handleDrop} />
+                </div>
+                <div className="info-actions-div">
+                    <div className="actions-div">
+                        <button onClick={randomMove}>Random Move</button>
+                        <button onClick={resetGame}>Reset Board</button>
+                        <button onClick={undoLastMove}>Undo Last Move</button>
+                        <button onClick={addHeaders}>Update Headers</button>
+                        <button onClick={handleLoadFEN}>Load FEN</button>
+                        <button onClick={handleLoadPGN}>Load PGN</button>
+                        <button onClick={copyFEN}>Copy FEN to Clipboard</button>
+                        <button onClick={saveGame}>Save Game</button>
+                    </div>
+                    <InfoBox game={game} />
+                </div>
             </div>
-            <InfoBox game={game} />
-            <Board fen={game.fen()} handleDrop={handleDrop}/>
-            <MessageWindow messages={messages} clearMessages={clearMessages}/>
-        </>
+            <div className="message-div">
+                <MessageWindow  messages={messages} clearMessages={clearMessages} />
+            </div>
+
+        </div>
     )
 
     function handleLoadPGN() {
@@ -56,7 +65,7 @@ export default function Play() {
         const white = prompt("Enter White's name: ");
         const black = prompt("Enter Black's name: ");
         const event = prompt("Enter a name for this match: ") ?? 'Untitled Match';
-        
+
         const copy = copyGame();
         copy.header('White', white, 'Black', black, 'Date', new Date(), 'Event', event);
         setGame(copy);
@@ -81,12 +90,12 @@ export default function Play() {
         }
         console.log("TODO: Post game to db");
         fetch('http://localhost:5000/games', POST_OPTIONS)
-        .then(data => data.json())
-        .then(gameObj => {
-            console.log(gameObj);
-        })
+            .then(data => data.json())
+            .then(gameObj => {
+                console.log(gameObj);
+            })
     }
-    
+
     function randomMove() {
         const copy = copyGame();
         if (game.isCheckmate()) {
@@ -134,7 +143,7 @@ export default function Play() {
     }
 
     function addMessage(text) {
-        setMessages([...messages, {text: text}])
+        setMessages([...messages, { text: text }])
     }
 
     function copyFEN() {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Chessboard } from 'react-chessboard';
 import { useNavigate } from 'react-router-dom'
+import Board from './Board';
 
 
 export default function HistoricalGameCard({ game }) {
@@ -11,15 +12,15 @@ export default function HistoricalGameCard({ game }) {
 
     const details = (
         <div className="historical-card-details">
-            <p>PGN: {game.pgn}</p>
-            <p>FEN: {game.fen}</p>
+            <button onClick={() => {navigator.clipboard.writeText(game.pgn)}}>Copy PGN</button>
+            <button onClick={() => {navigator.clipboard.writeText(game.fen)}}>Copy FEN</button>
             <button onClick={openInPlayer}>Open in Player</button>
         </div>
     )
 
     const chessBoardSmall = (
         <div className="chessboard-small">
-            <Chessboard position={game.fen} arePiecesDraggable={false} />
+            <Board fen={game.fen} arePiecesDraggable={false}/>
         </div>
     )
 
