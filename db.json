@@ -1,19 +1,46 @@
 {
-  "posts": [
+  "games": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "Test",
+      "date": "2023-08-16T16:26:14.422Z",
+      "pgn": "1. f3 b5 2. Na3 Na6 3. h4 e6 4. Rh3 Rb8 5. g3 Nh6 6. Kf2 Bb4 7. e4 Ng8 8. Kg2 c5 9. Rh2 Bb7 10. h5 Ne7 11. Nxb5 Ng6 12. Kh1 Qc7 13. Nxc7+",
+      "fen": "1r2k2r/pbNp1ppp/n3p1n1/2p4P/1b2P3/5PP1/PPPP3R/R1BQ1BNK b k - 0 13",
+      "id": 6
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "\"Kasparov's Immortal\"",
+      "date": "2023-08-16T16:42:02.216Z",
+      "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Be3 Bg7 5. Qd2 c6 6. f3 b5 7. Nge2 Nbd7 8. Bh6 Bxh6 9. Qxh6 Bb7 10. a3 e5 11. O-O-O Qe7 12. Kb1 a6 13. Nc1 O-O-O 14. Nb3 exd4 15. Rxd4 c5 16. Rd1 Nb6 17. g3 Kb8 18. Na5 Ba8 19. Bh3 d5 20. Qf4+ Ka7 21. Rhe1 d4 22. Nd5 Nbxd5 23. exd5 Qd6 24. Rxd4 cxd4 25. Re7+ Kb6 26. Qxd4+ Kxa5 27. b4+ Ka4 28. Qc3 Qxd5 29. Ra7 Bb7 30. Rxb7 Qc4 31. Qxf6 Kxa3 32. Qxa6+ Kxb4 33. c3+ Kxc3 34. Qa1+ Kd2 35. Qb2+ Kd1 36. Bf1 Rd2 37. Rd7 Rxd7 38. Bxc4 bxc4 39. Qxh8 Rd3 40. Qa8 c3 41. Qa4+ Ke1 42. f4 f5 43. Kc1 Rd2 44. Qa7",
+      "fen": "8/Q6p/6p1/5p2/5P2/2p3P1/3r3P/2K1k3 b - - 3 44",
+      "id": 7
+    },
+    {
+      "name": "Opera Game",
+      "date": "2023-08-16T16:58:06.399Z",
+      "pgn": "1. e4 e5 2. Nf3 d6 3. d4 Bg4 {This is a weak move already.--Fischer} 4. dxe5 Bxf3 5. Qxf3 dxe5 6. Bc4 Nf6 7. Qb3 Qe7 8. Nc3 c6 9. Bg5 {Black is in what's like a zugzwang position here. He can't develop the [Queen's] knight because the pawn is hanging, the bishop is blocked because of the Queen.--Fischer} b5 10. Nxb5 cxb5 11. Bxb5+ Nbd7 12. O-O-O Rd8 13. Rxd7 Rxd7 14. Rd1 Qe6 15. Bxd7+ Nxd7 16. Qb8+ Nxb8 17. Rd8#",
+      "fen": "1n1Rkb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2K5 b k - 1 17",
+      "id": 8
+    },
+    {
+      "name": null,
+      "date": "2023-08-16T19:55:29.789Z",
+      "pgn": "1. e4 e5 2. Nf3 d6 3. d4 Bg4 {This is a weak move already.--Fischer} 4. dxe5 Bxf3 5. Qxf3 dxe5 6. Bc4 Nf6 7. Qb3 Qe7 8. Nc3 c6 9. Bg5 {Black is in what's like a zugzwang position here. He can't develop the [Queen's] knight because the pawn is hanging, the bishop is blocked because of the Queen.--Fischer} b5 10. Nxb5 cxb5 11. Bxb5+ Nbd7 12. O-O-O Rd8 13. Rxd7 Rxd7 14. Rd1 Qe6 15. Bxd7+ Nxd7 16. Qb8+ Nxb8 17. Rd8#",
+      "fen": "1n1Rkb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2K5 b k - 1 17",
+      "id": 9
+    },
+    {
+      "name": "Demoing app for Caleb!",
+      "date": "2023-08-16T20:26:04.138Z",
+      "pgn": "1. a3 Na6 2. c4 Nf6 3. g4 Nxg4 4. Nh3 Nb8 5. Qb3 h5 6. Ng1 e6 7. e3 Nxe3 8. Qb6 Rh6 9. Qxe3 Nc6 10. Qb6 Ne5 11. Bh3 g6",
+      "fen": "r1bqkb2/pppp1p2/1Q2p1pr/4n2p/2P5/P6B/1P1P1P1P/RNB1K1NR w KQq - 0 12",
+      "id": 10
+    },
+    {
+      "name": "Saved Game 8/17",
+      "date": "2023-08-17T14:30:04.287Z",
+      "pgn": "1. a3 Na6 2. c4 Nf6 3. g4 Nxg4 4. Nh3 Nb8 5. Qb3 h5 6. Ng1 e6 7. e3 Nxe3 8. Qb6 Rh6 9. Qxe3 Nc6 10. Qb6 Ne5 11. Bh3 g6",
+      "fen": "r1bqkb2/pppp1p2/1Q2p1pr/4n2p/2P5/P6B/1P1P1P1P/RNB1K1NR w KQq - 0 12",
+      "id": 11
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

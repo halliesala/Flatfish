@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import './index.css'
+
 
 import MainPage from './components/MainPage'
 import About from './components/About'
 import ErrorPage from './components/ErrorPage';
 import History from './components/History'
 import Play from './components/Play';
+import { getGamesLoader, getGameByIdLoader } from './loaders';
 
 const router = createBrowserRouter([
   {
@@ -25,11 +28,17 @@ const router = createBrowserRouter([
       },
       {
         path: "history",
-        element: <History />
+        element: <History />,
+        loader: getGamesLoader,
       },
       {
         path: "play",
         element: <Play />
+      },
+      {
+        path: "play/:id",
+        element: <Play />,
+        loader: getGameByIdLoader,
       }
     ]
   },

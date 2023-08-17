@@ -1,2 +1,31 @@
+.headerDiv {
+  border: 10px solid blue;
+}
 
+.buttonDiv {
+  border: 10px solid magenta;
+}
+
+.infoDiv {
+  border: 10px solid cyan;
+
+}
+
+.boardDiv {
+  border: 10px solid orange;
+
+}
+
+.messageDiv {
+  border: 10px solid limegreen;
+
+}
+
+.chessboard-small {
+  width: 100px;
+}
+
+.historical-game {
+  border: 10px solid limegreen;
+}
 
