@@ -6,16 +6,18 @@ import Board from "./Board";
 import { useLoaderData, useOutletContext } from "react-router-dom";
 
 export default function Play() {
-
-    const [color] = useOutletContext();
-
-
+    
     const data = useLoaderData();
+
+    let [color] = useOutletContext();
 
     const initialGame = new Chess();
 
     if (data) {
         initialGame.loadPgn(data.game.pgn);
+        if (data.game.color) {
+            color = data.game.color
+        }
     }
 
     const WELCOME_MESSAGE = { timestamp: new Date(), text: "Welcome! Messages will appear here." }
@@ -34,14 +36,14 @@ export default function Play() {
                 </div>
                 <div className="info-actions-div">
                     <div className="actions-div">
-                        <button onClick={randomMove}>Random Move</button>
-                        <button onClick={resetGame}>Reset Board</button>
-                        <button onClick={undoLastMove}>Undo Last Move</button>
-                        <button onClick={addHeaders}>Update Headers</button>
-                        <button onClick={handleLoadFEN}>Load FEN</button>
-                        <button onClick={handleLoadPGN}>Load PGN</button>
-                        <button onClick={copyFEN}>Copy FEN to Clipboard</button>
-                        <button onClick={saveGame}>Save Game</button>
+                        <button className="action-button" onClick={randomMove}>Random Move</button>
+                        <button className="action-button" onClick={resetGame}>Reset Board</button>
+                        <button className="action-button" onClick={undoLastMove}>Undo Last Move</button>
+                        <button className="action-button" onClick={addHeaders}>Update Headers</button>
+                        <button className="action-button" onClick={handleLoadFEN}>Load FEN</button>
+                        <button className="action-button" onClick={handleLoadPGN}>Load PGN</button>
+                        <button className="action-button" onClick={copyFEN}>Copy FEN to Clipboard</button>
+                        <button className="action-button" onClick={saveGame}>Save Game</button>
                     </div>
                     <InfoBox game={game} />
                 </div>

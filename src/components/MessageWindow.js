@@ -1,8 +1,11 @@
 export default function MessageWindow({ messages, clearMessages }) {
     return (
-        <div className="message-div">
-            <h2>Messages</h2>
-            <button onClick={clearMessages}>Clear Message Console</button>
+
+        <div className="messageDiv">
+            <div className="message-header">
+                <h2>Messages</h2>
+                <button onClick={clearMessages}>Clear Message Console</button>
+            </div>
             {messages.map((message, idx) => {
                 return (
                     <div key={idx}>

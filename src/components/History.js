@@ -7,6 +7,7 @@ export default function History() {
     return (
         <>
             <h1>History</h1>
+            <p>Click to open in player.</p>
             <div className="historical-games-div">
                 {
                     games.map(game => {

@@ -23,7 +23,6 @@ body {
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  /* border: 5px solid green; */
 }
 
 .colorful-queen-span {
@@ -33,11 +32,9 @@ body {
 .actions-div {
   display: flex;
   flex-flow: column wrap;
-  /* border: 5px solid magenta; */
 }
 
 nav {
-  /* border: 5px solid black; */
   padding: 10px;
 }
 
@@ -49,52 +46,24 @@ nav {
 
 .historical-game {
   border: 5px solid black;
-  border-radius: 10%;
+  border-radius: 15px;
   margin: 10px;
   padding: 10px;
 }
 
 
 
-
-/* These divs section the 'Play' page */
-
-.play-div {
-  /* border: 5px solid violet; */
-}
-
-.board-div {
-  /* border: 5px solid salmon; */
-}
-
-info-actions-div {}
-
-
-.info-div {
-  /* border: 5px solid cyan; */
-}
-
 .message-div {
-  /* border: 2px solid black; */
   padding-top: 1rem;
 }
 
-.message-container {
-  border: 2px solid greenyellow;
-}
-
-.captured-pieces {
-  /* border: 2px solid black; */
-
-  /* display: flex; */
-  /* flex-flow: row wrap; */
-  /* border: 5px solid lightcoral; */
-
-}
 
 button {
   font-family: 'Comfortaa';
   background-color: transparent;
+}
+
+.action-button {
   margin: 1px;
 }
 
@@ -114,14 +83,14 @@ button {
   }
 
   .info-actions-div {
-    /* min-width: 20%; */
-    /* max-width: 60%; */
     margin: 10px;
-    /* border: 2px solid red; */
-
   }
 
 
+}
+
+.board-div {
+  width: 100%;
 }
 
 @media (min-width: 20rem) {
@@ -135,15 +104,24 @@ button {
     .historical-games-div {
       grid-template-columns: repeat(2, 1fr);
     }
+    .board-div {
+      width: 50%;
+    }
 
     @media (min-width: 60rem) {
       .historical-games-div {
         grid-template-columns: repeat(3, 1fr);
       }
+      .board-div {
+        width: 45%;
+      }
 
       @media (min-width: 85rem) {
         .historical-games-div {
           grid-template-columns: repeat(4, 1fr);
+        }
+        .board-div {
+          width: 40%;
         }
       }
     }
@@ -172,7 +150,7 @@ button {
   color: blue;
 }
 
-.choose-color-container {
+.choose-color-container, .choose-container {
   background-color: transparent;
   display: flex;
   flex-flow: row wrap;
@@ -183,7 +161,7 @@ button {
 .choose-color {
   padding: 8% 10%;
   margin: 1%;
-  border-radius: 10%;
+  border-radius: 15px;
 }
 
 .choose-color-page {
@@ -198,4 +176,33 @@ button {
 
 .black {
   background-color: black;
+}
+
+.choose {
+  margin: 1%;
+  border-radius: 15px ;
+  width: 80%;
+}
+
+  
+@media (min-width: 40rem) {
+  .choose {
+    width: 30%;
+    height: 40vh;
+    padding: 10px;
+
+  } 
+}
+
+.game-name {
+  margin: 1px;
+  border-bottom: 1px solid black;
+}
+
+.detail-container {
+}
+.historical-card-button {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
 }

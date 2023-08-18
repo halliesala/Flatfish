@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Chess } from "chess.js";
 import MessageWindow from './MessageWindow';
 import InfoBox from "./InfoBox";
@@ -10,7 +10,9 @@ export default function PlayRME() {
 
     const [color] = useOutletContext();
     const [playerColor, setPlayerColor] = useState();
+    const [isComputersTurn, setIsComputersTurn] = useState();
 
+    
 
     const data = useLoaderData();
 
@@ -25,37 +27,54 @@ export default function PlayRME() {
     const [game, setGame] = useState(initialGame);
     const [messages, setMessages] = useState([WELCOME_MESSAGE]);
 
+    useEffect(() => {
+        if (isComputersTurn) {
+            randomMove();
+            setIsComputersTurn(!isComputersTurn);
+        }
+
+        function randomMove() {
+            const copy = copyGame();
+            if (game.isCheckmate()) {
+                addMessage(`That's checkmate! ${game.winner} wins!`)
+            } else {
+                const moves = copy.moves();
+                const nextMove = moves[Math.floor(Math.random() * moves.length)]
+                copy.move(nextMove)
+                setGame(copy);
+            }
+        }
+
+    },
+    [isComputersTurn, setIsComputersTurn, game])
+
     if (!playerColor) {
         return (
             <div className="choose-color-page">
                 <h1 className="choose-a-side">Choose a side:</h1>
-                <ChooseColor setPlayerColor={setPlayerColor}/>
+                <ChooseColor setPlayerColor={setPlayerColor} setIsComputersTurn={setIsComputersTurn}/>
             </div>
         )
     } 
 
     return (
         <div>
-            
             <div className="play-div">
                 <div className="board-div">
                     {
-                        playerColor 
-                        ? <Board fen={game.fen()} handleDrop={handleDrop} color={color} orientation={playerColor}/>
-                        : <Board fen={game.fen()} handleDrop={handleDrop} color={color} arePiecesDraggable={false}/>
+                        game.turn() === playerColor.toLowerCase().slice(0, 1) 
+                        ? <Board fen={game.fen()} handleDrop={handlePlayerDrop} color={color} orientation={playerColor}/>
+                        : <Board fen={game.fen()} handleDrop={handleDrop} color={color} orientation={playerColor} arePiecesDraggable={false}/>
                     }
                     <MessageWindow messages={messages} clearMessages={clearMessages} />
                 </div>
                 <div className="info-actions-div">
                     <div className="actions-div">
-                        <button onClick={randomMove}>Random Move</button>
-                        <button onClick={resetGame}>Reset Board</button>
-                        <button onClick={undoLastMove}>Undo Last Move</button>
-                        <button onClick={addHeaders}>Update Headers</button>
-                        <button onClick={handleLoadFEN}>Load FEN</button>
-                        <button onClick={handleLoadPGN}>Load PGN</button>
-                        <button onClick={copyFEN}>Copy FEN to Clipboard</button>
-                        <button onClick={saveGame}>Save Game</button>
+                        <button className="action-button" onClick={resetGame}>Reset Board</button>
+                        <button className="action-button" onClick={undoLastMove}>Undo Last Move</button>
+                        <button className="action-button" onClick={addHeaders}>Update Headers</button>
+                        <button className="action-button" onClick={copyFEN}>Copy FEN to Clipboard</button>
+                        <button className="action-button" onClick={saveGame}>Save Game</button>
                     </div>
                     <InfoBox game={game} />
                 </div>
@@ -65,21 +84,11 @@ export default function PlayRME() {
         </div>
     )
 
-    function handleGamePlay(playerColor) {
-
+    function handlePlayerDrop(sourceSquare, targetSquare) {
+        handleDrop(sourceSquare, targetSquare);
+        setIsComputersTurn(!isComputersTurn);
     }
 
-    function handleLoadPGN() {
-        const pgn = prompt("Enter a PGN: ");
-        try {
-            const copy = new Chess();
-            copy.loadPgn(pgn);
-            setGame(copy);
-            addMessage("PGN loaded.");
-        } catch (error) {
-            addMessage("Failed to load PGN. Verify that your PGN is valid.");
-        }
-    }
 
     function addHeaders() {
         const white = prompt("Enter White's name: ");
@@ -119,18 +128,6 @@ export default function PlayRME() {
             .then(gameObj => {
                 addMessage("Game saved. Go to 'History' to view saved games.");
             })
-    }
-
-    function randomMove() {
-        const copy = copyGame();
-        if (game.isCheckmate()) {
-            addMessage(`That's checkmate! ${game.winner} wins!`)
-        } else {
-            const moves = copy.moves();
-            const nextMove = moves[Math.floor(Math.random() * moves.length)]
-            copy.move(nextMove)
-            setGame(copy);
-        }
     }
 
     function resetGame() {
@@ -188,9 +185,4 @@ export default function PlayRME() {
         }
     }
 
-    function handleLoadFEN() {
-        const fen = prompt("Enter a FEN:");
-        setGame(new Chess(fen));
-        addMessage("FEN loaded.")
-    }
 }
