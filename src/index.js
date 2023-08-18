@@ -11,6 +11,7 @@ import ErrorPage from './components/ErrorPage';
 import History from './components/History'
 import Play from './components/Play';
 import { getGamesLoader, getGameByIdLoader } from './loaders';
+import PlayRME from './components/PlayRME';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         path: "play/:id",
         element: <Play />,
         loader: getGameByIdLoader,
+      },
+      {
+        path: "play/rme",
+        element: <PlayRME />
       }
     ]
   },

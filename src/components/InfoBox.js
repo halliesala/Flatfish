@@ -33,7 +33,6 @@ export default function InfoBox({ game }) {
 
         let fen = game.fen();
         fen = fen.split(" ")[0];
-        console.log(fen);
 
 
         // Example FEN with one black knight captured
@@ -62,7 +61,6 @@ export default function InfoBox({ game }) {
             }
         }
 
-        console.log(piece_counts);
 
     }
 }

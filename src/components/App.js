@@ -1,11 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
+import { useState } from 'react';
 
 function App() {
+
+  const [color, setColor] = useState("black");
+
   return (
     <div className="container">
-      <Header />
-      <Outlet />
+      <Header color={color} setColor={setColor}/>
+      <Outlet context={[color]}/>
     </div>
   );
 }

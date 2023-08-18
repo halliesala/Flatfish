@@ -12,7 +12,6 @@ body {
 }
 
 .header-div {
-  /* border: 5px solid blue; */
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -43,7 +42,9 @@ nav {
 }
 
 .chessboard-small {
-  width: 100px;
+  padding: 10px;
+  width: 90%;
+  
 }
 
 .historical-game {
@@ -73,9 +74,13 @@ info-actions-div {}
   /* border: 5px solid cyan; */
 }
 
-.messageDiv {
+.message-div {
   /* border: 2px solid black; */
-  padding: 1rem;
+  padding-top: 1rem;
+}
+
+.message-container {
+  border: 2px solid greenyellow;
 }
 
 .captured-pieces {
@@ -89,7 +94,10 @@ info-actions-div {}
 
 button {
   font-family: 'Comfortaa';
+  background-color: transparent;
+  margin: 1px;
 }
+
 
 
 @media (min-width: 35rem) {
@@ -101,45 +109,93 @@ button {
   }
 
   .board-div {
-    min-width: 40%;
+    min-width: 0%;
     margin: 10px;
   }
 
-  .info-div {}
-
   .info-actions-div {
-    min-width: 20%;
-    max-width: 60%;
+    /* min-width: 20%; */
+    /* max-width: 60%; */
     margin: 10px;
     /* border: 2px solid red; */
 
   }
 
-  .messageDiv {
-    min-width: 80%
-  }
+
 }
 
-@media (min-width: 25rem) {
+@media (min-width: 20rem) {
   .historical-games-div {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(auto, 1fr)
   }
-  @media (min-width: 45rem) {
+
+  @media (min-width: 40rem) {
     .historical-games-div {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
+
     @media (min-width: 60rem) {
       .historical-games-div {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
+
       @media (min-width: 85rem) {
         .historical-games-div {
-          grid-template-columns: repeat(5, 1fr);
+          grid-template-columns: repeat(4, 1fr);
         }
       }
     }
+  }
 }
 
+@media (min-width: 70rem) {
+  .error-img {
+    grid-row: 1 / 4;
+    grid-column: 1 / 3;
+  }
+  
+  .error-text-div {
+    grid-row: 2;
+    grid-column: 3/5;
+  }
+  
+  .error-page {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+}
+
+.timestamp {
+  color: blue;
+}
+
+.choose-color-container {
+  background-color: transparent;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.choose-color {
+  padding: 8% 10%;
+  margin: 1%;
+  border-radius: 10%;
+}
+
+.choose-color-page {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.choose-a-side {
+  margin: 5% 1% 1% 1%;
+  align-self: center;
+}
+
+.black {
+  background-color: black;
 }

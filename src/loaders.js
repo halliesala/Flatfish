@@ -6,7 +6,6 @@ export async function getGamesLoader() {
 
 export async function getGameByIdLoader({ params }) {
     const response = await fetch(`http://localhost:5000/games/${params.id}`);
-    console.log(response);
 
     if (response.ok) {
         const game = await response.json();

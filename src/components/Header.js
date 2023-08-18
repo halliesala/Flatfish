@@ -2,12 +2,11 @@ import {Link} from "react-router-dom";
 import Piece from "./Piece";
 import { useState } from 'react'
 
-export default function Header() {
+export default function Header({color, setColor, className}) {
 
-    const [color, setColor] = useState("black");
 
     return (
-        <div className="header-div">
+        <div className={`header-div ${className}`}>
             <div className="site-title-div">
                 <span className="colorful-queen-span" onClick={randomColor}>
                     <Piece piece="cQ" color={color} />
@@ -22,6 +21,8 @@ export default function Header() {
                 <Link to="/history">History</Link>
                 <span>{`\t|\t`}</span>
                 <Link to="/play">Play</Link>
+                <span>{`\t|\t`}</span>
+                <Link to="/play/rme">Play RME</Link>
             </nav>
         </div>
     )

@@ -3,11 +3,13 @@ import { Chess } from "chess.js";
 import MessageWindow from './MessageWindow';
 import InfoBox from "./InfoBox";
 import Board from "./Board";
+import ChooseColor from "./ChooseColor";
 import { useLoaderData, useOutletContext } from "react-router-dom";
 
-export default function Play() {
+export default function PlayRME() {
 
     const [color] = useOutletContext();
+    const [playerColor, setPlayerColor] = useState();
 
 
     const data = useLoaderData();
@@ -23,13 +25,25 @@ export default function Play() {
     const [game, setGame] = useState(initialGame);
     const [messages, setMessages] = useState([WELCOME_MESSAGE]);
 
+    if (!playerColor) {
+        return (
+            <div className="choose-color-page">
+                <h1 className="choose-a-side">Choose a side:</h1>
+                <ChooseColor setPlayerColor={setPlayerColor}/>
+            </div>
+        )
+    } 
 
     return (
         <div>
-
+            
             <div className="play-div">
                 <div className="board-div">
-                    <Board fen={game.fen()} handleDrop={handleDrop} color={color} />
+                    {
+                        playerColor 
+                        ? <Board fen={game.fen()} handleDrop={handleDrop} color={color} orientation={playerColor}/>
+                        : <Board fen={game.fen()} handleDrop={handleDrop} color={color} arePiecesDraggable={false}/>
+                    }
                     <MessageWindow messages={messages} clearMessages={clearMessages} />
                 </div>
                 <div className="info-actions-div">
@@ -46,10 +60,14 @@ export default function Play() {
                     <InfoBox game={game} />
                 </div>
             </div>
-
+            
 
         </div>
     )
+
+    function handleGamePlay(playerColor) {
+
+    }
 
     function handleLoadPGN() {
         const pgn = prompt("Enter a PGN: ");

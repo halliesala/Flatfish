@@ -11,7 +11,7 @@ export default function History() {
                 {
                     games.map(game => {
                         return (
-                            <HistoricalGameCard key={game.id} game={game}/>
+                            <HistoricalGameCard key={game.id} game={game} color={game.color}/>
                         )
                     })
                 }

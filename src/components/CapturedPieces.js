@@ -18,7 +18,6 @@ export default function CapturedPieces({ fen, color, text }) {
     function getCapturedPiecesFromFEN() {
 
         let boardFen = fen.split(" ")[0];
-        console.log(boardFen);
 
         // Example FEN with one black knight captured:
         // r1bqkbnr/2ppp3/p4pp1/4P2p/1p3B2/1PP2PPN/P3P1BP/RN1QK2R b KQkq - 1 9
