@@ -45,7 +45,7 @@ nav {
 }
 
 .historical-game {
-  border: 5px solid black;
+  border: 2px solid black;
   border-radius: 15px;
   margin: 10px;
   padding: 10px;
@@ -199,8 +199,6 @@ button {
   border-bottom: 1px solid black;
 }
 
-.detail-container {
-}
 .historical-card-button {
   border: 1px solid black;
   border-radius: 10px;

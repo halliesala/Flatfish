@@ -12,8 +12,6 @@ export default function PlayRME() {
     const [playerColor, setPlayerColor] = useState();
     const [isComputersTurn, setIsComputersTurn] = useState();
 
-    
-
     const data = useLoaderData();
 
     const initialGame = new Chess();
@@ -46,7 +44,7 @@ export default function PlayRME() {
         }
 
     },
-    [isComputersTurn, setIsComputersTurn, game])
+    [isComputersTurn])
 
     if (!playerColor) {
         return (
@@ -85,8 +83,22 @@ export default function PlayRME() {
     )
 
     function handlePlayerDrop(sourceSquare, targetSquare) {
-        handleDrop(sourceSquare, targetSquare);
-        setIsComputersTurn(!isComputersTurn);
+        const move = {
+            from: sourceSquare,
+            to: targetSquare,
+            promotion: 'q',
+        }
+
+        const copy = copyGame();
+
+        // If valid, move
+        try {
+            copy.move(move)
+            setGame(copy);
+            setIsComputersTurn(!isComputersTurn);
+        } catch (error) {
+            addMessage(error.toString());
+        }        
     }
 
 
@@ -156,12 +168,11 @@ export default function PlayRME() {
         // If valid, move
         try {
             copy.move(move)
+            setGame(copy);
         } catch (error) {
             addMessage(error.toString());
+            // Update state
         }
-
-        // Update state
-        setGame(copy);
     }
 
     function addMessage(text) {
